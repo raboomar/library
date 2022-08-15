@@ -1,15 +1,14 @@
-import LandingPage from "./components/LandingPage";
-import "./App.css";
+import LandingPage from "./components/landingPage/LandingPage.jsx";
 import Navbar from "./components/navbar/Navbar.jsx";
+import "./App.css";
 function App() {
   return (
     <div className="grid-container">
       <div className="header">
         <Navbar />
       </div>
-      <div className="side-bar"></div>
+
       <div className="main-area">
-        {" "}
         <LandingPage />
       </div>
 

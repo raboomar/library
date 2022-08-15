@@ -12,8 +12,7 @@ const Navbar = () => {
             }}
             className="login-btn"
           >
-            {" "}
-            Login{" "}
+            Login
           </button>
         </li>
       </ul>
