@@ -1,23 +1,22 @@
 .landing-container{
-    background-color: #2196F3;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
+    /* background-color: #2196F3; */
+
     text-align: center;
     min-height: 80vh;
 }
+.add-book-container{
+    display: flex;
+    justify-content: center;
+}
 .add-book-btn{
-    padding-top: 15px;
+    padding: 15px;
     background: none;
     border: none;
     color: azure;
     font-size: 20px;
-    display: flex;
-    justify-content: center;
+  
 }
-.add-book-btn:hover{
-    cursor: pointer;
-}
+
 .books{
     display:grid ;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

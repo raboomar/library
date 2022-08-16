@@ -1,3 +1,12 @@
+h4{
+  color: azure;
+}
+h5{
+  color: azure;
+}
+button:hover{
+  cursor: pointer;
+}
 .header { grid-area: header; }
 .side-bar { grid-area: menu; }
 .main-area { grid-area: main; }
@@ -11,12 +20,12 @@
     'main main main main main main'
     'footer footer footer footer footer footer';
   gap: 10px;
-  background-color: #2196F3;
+  background-color: rgb(48, 71, 94);
   padding: 10px;
 }
 
 .grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
+  /* background-color: rgba(255, 255, 255, 0.8); */
   text-align: center;
   padding: 20px 0;
   

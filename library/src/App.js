@@ -12,7 +12,9 @@ function App() {
         <LandingPage />
       </div>
 
-      <div className="footer">Footer</div>
+      <div className="footer">
+        <h5> ©Rami Aboomar 2022</h5>
+      </div>
     </div>
   );
 }
