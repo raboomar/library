@@ -1,7 +1,7 @@
 .landing-container{
     background-color: #2196F3;
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
     /* align-items: center; */
     text-align: center;
     min-height: 80vh;
@@ -12,7 +12,15 @@
     border: none;
     color: azure;
     font-size: 20px;
+    display: flex;
+    justify-content: center;
 }
 .add-book-btn:hover{
     cursor: pointer;
+}
+.books{
+    display:grid ;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+    grid-gap: 20px;
 }
