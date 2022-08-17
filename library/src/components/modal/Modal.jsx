@@ -18,7 +18,11 @@ const Modal = ({ setShowAddBook }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("in here");
+    if (title.length === 0 || author.length === 0) {
+      document.querySelector(".error-message").style.visibility = "visible";
+    } else {
+      setShowAddBook(false);
+    }
   };
   return (
     <div className="modal-container">
@@ -34,30 +38,27 @@ const Modal = ({ setShowAddBook }) => {
         <h4>Add new Book</h4>
         <div className="input-container">
           <form action="submit">
-            <label htmlFor="title">
-              Title{" "}
-              <input
-                type="text"
-                name="title"
-                value={title}
-                onChange={(e) => {
-                  handleTextInput(e);
-                }}
-              />
-            </label>
+            <label htmlFor="title">Title </label>
             <br />
-            <label htmlFor="author">
-              Author{" "}
-              <input
-                name="author"
-                type="text"
-                value={author}
-                onChange={(e) => {
-                  handleTextInput(e);
-                }}
-              />
-            </label>
-
+            <input
+              type="text"
+              name="title"
+              value={title}
+              onChange={(e) => {
+                handleTextInput(e);
+              }}
+            />
+            <br />
+            <label htmlFor="author">Author </label>
+            <br />
+            <input
+              name="author"
+              type="text"
+              value={author}
+              onChange={(e) => {
+                handleTextInput(e);
+              }}
+            />
             <br />
             <input
               type="checkbox"
@@ -66,10 +67,15 @@ const Modal = ({ setShowAddBook }) => {
               checked={haveReadIt}
               onChange={readIt}
             />
-            <label htmlFor="readIt"> have you read it?</label>
+
+            <label htmlFor="readIt"> Have you read it?</label>
             <br />
-            <p className="error-message">All fields must be filled out</p>
+            <p className="error-message">
+              {" "}
+              <b>All fields must be filled out</b>{" "}
+            </p>
             <button
+              className="add-book-btn"
               type="submit"
               onClick={(e) => {
                 handleSubmit(e);
