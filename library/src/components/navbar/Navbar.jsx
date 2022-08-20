@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import Registration from "../modal/Registration";
 import "./navbar.css";
 const Navbar = () => {
+  const [showRed, setShowReg] = useState(false);
+  const handleRegModal = () => {
+    showRed ? setShowReg(false) : setShowReg(true);
+  };
   return (
     <nav>
       <ul>
@@ -8,7 +13,7 @@ const Navbar = () => {
         <li className="login-container">
           <button
             onClick={() => {
-              console.log("hiii");
+              handleRegModal();
             }}
             className="login-btn"
           >
@@ -16,6 +21,7 @@ const Navbar = () => {
           </button>
         </li>
       </ul>
+      {showRed ? <Registration setShowReg={setShowReg} /> : null}
     </nav>
   );
 };

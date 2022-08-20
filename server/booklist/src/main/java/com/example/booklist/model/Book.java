@@ -1,6 +1,7 @@
 package com.example.booklist.model;
 
 import lombok.*;
+import org.apache.catalina.User;
 
 import javax.persistence.*;
 @ToString
@@ -10,11 +11,10 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class book {
+public class Book {
 
     @Id
-    @SequenceGenerator(name = "book_sequence", sequenceName = "book_sequence", allocationSize = 1)
-    @GeneratedValue(generator = "book_sequence", strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(nullable = false)
     private String title;
@@ -22,12 +22,14 @@ public class book {
     private String author;
     @Column(nullable = false)
     private boolean readIt;
+    @ManyToOne
+    @JoinColumn(name =  "user_id")
+    private Users users;
 
-    public book(String title, String author, boolean readIt) {
+    public Book(String title, String author, boolean readIt, Users users) {
         this.title = title;
         this.author = author;
         this.readIt = readIt;
+        this.users = users;
     }
-
-
 }
