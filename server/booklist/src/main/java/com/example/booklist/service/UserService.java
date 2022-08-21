@@ -34,4 +34,11 @@ public class UserService {
 
 
     }
+
+
+
+    public Optional<User> getUser(String username, String password) {
+        System.out.println(userRepository.findByUsernameEqualsAndPasswordEquals(username, password));
+         return userRepository.findByUsernameEqualsAndPasswordEquals(username, password);
+    }
 }

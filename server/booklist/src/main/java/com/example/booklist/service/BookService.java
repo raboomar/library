@@ -25,16 +25,16 @@ public class BookService {
     }
 
     public void addNewBook(Book book, Long userId) {
-        List<Book> bookExist =bookRepository.findBookByAuthorEqualsAndTitleEquals(book.getAuthor(), book.getTitle());
-        if (bookExist.size() == 0 ){
-            User user = userRepository.findById(userId).get();
-            book.addUser(user);
-            bookRepository.save(book);
-        }
-        
+        User user = userRepository.findById(userId).get();
+           book.addUser(user);
+           bookRepository.save(book);
     }
 
     public void deleteUser(Long id) {
        bookRepository.deleteById(id);
+    }
+
+    public List<Book> getBookByUsersId(Long userId) {
+        return bookRepository.findUsersBooks(userId);
     }
 }

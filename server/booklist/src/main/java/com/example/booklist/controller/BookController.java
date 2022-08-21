@@ -23,6 +23,11 @@ public class BookController {
         return bookService.getAllBooks();
     }
 
+    @GetMapping(path = "api/usersBooks/{userId}")
+    public List<Book> getAllUsersBooks(@PathVariable Long userId){
+        return bookService.getBookByUsersId(userId);
+    }
+
     @PostMapping(path = "/api/addNewBook/{userId}")
     public void addNewBook(@RequestBody Book book, @PathVariable Long userId){
 

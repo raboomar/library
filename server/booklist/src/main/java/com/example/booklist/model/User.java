@@ -25,12 +25,8 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-//    @JsonIgnore
-//    @OneToMany(
-//         mappedBy = "user"
-//    )
-////    @JoinColumn(name = "user_id_fk",referencedColumnName = "user_id") ;
 
+@JsonIgnore
     @ManyToMany (mappedBy = "users")
     private List<Book> books = new ArrayList<>();
 
@@ -39,17 +35,5 @@ public class User {
         this.password = password;
     }
 
-//    public void addBook(Book book){
-//        if(!this.books.contains(book)){
-//            this.books.add(book);
-//            book.setUser(this);
-//        }
-//    }
-//
-//    public void removeBook(Book book){
-//        if(books.contains(book)){
-//            books.remove(book);
-//            book.setUser(null);
-//        }
-//    }
+
 }

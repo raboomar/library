@@ -25,12 +25,8 @@ public class Book {
     private String author;
     @Column(nullable = false)
     private boolean readIt;
-//    @ManyToOne( cascade = CascadeType.ALL)
-//    @JoinColumn(name =  "user_id",
-//            referencedColumnName = "user_id"
-//    )
-//    private User user;
-    @JsonIgnore
+
+@JsonIgnore
 @ManyToMany
 @JoinTable(
         name = "books_in_lib",

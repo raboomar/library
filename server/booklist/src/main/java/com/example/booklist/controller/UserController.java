@@ -7,6 +7,7 @@ import com.example.booklist.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -22,6 +23,11 @@ public class UserController {
     @GetMapping(path = "api/users")
     public List<User> getAllUsers (){
         return userService.getAllUsers();
+    }
+
+    @GetMapping(path = "api/user")
+    public Optional<User> getAllUser (@RequestBody String username , String password ){
+        return userService.getUser(username,password);
     }
 
     @PostMapping(path = "/api/addUser")
