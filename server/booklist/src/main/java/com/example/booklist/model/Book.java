@@ -1,12 +1,15 @@
 package com.example.booklist.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import org.apache.catalina.User;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 @ToString
-@Entity
-@Table
+@Entity (name = "Book")
+@Table (name = "book")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,21 +18,35 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long book_id;
     @Column(nullable = false)
     private String title;
     @Column(nullable = false)
     private String author;
     @Column(nullable = false)
     private boolean readIt;
-    @ManyToOne
-    @JoinColumn(name =  "user_id")
-    private Users users;
+//    @ManyToOne( cascade = CascadeType.ALL)
+//    @JoinColumn(name =  "user_id",
+//            referencedColumnName = "user_id"
+//    )
+//    private User user;
+    @JsonIgnore
+@ManyToMany
+@JoinTable(
+        name = "books_in_lib",
+        joinColumns = @JoinColumn(name = "book_id"),
+        inverseJoinColumns = @JoinColumn(name = "user_id")
+)
+    private List<User> users = new ArrayList<>();
 
-    public Book(String title, String author, boolean readIt, Users users) {
+    public Book(String title, String author, boolean readIt, User user) {
         this.title = title;
         this.author = author;
         this.readIt = readIt;
-        this.users = users;
+//        this.user = user;
+    }
+
+    public void addUser(User user) {
+        users.add(user);
     }
 }
