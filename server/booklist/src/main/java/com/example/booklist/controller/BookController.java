@@ -30,8 +30,12 @@ public class BookController {
 
     @PostMapping(path = "/api/addNewBook/{userId}")
     public void addNewBook(@RequestBody Book book, @PathVariable Long userId){
-
         bookService.addNewBook(book, userId);
+    }
+
+    @PutMapping(path = "api/updateBook/{bookId}")
+    public Book updateBook(@PathVariable Long bookId, @RequestBody Book book){
+       return bookService.updateBook(book , bookId);
     }
 
     @DeleteMapping (path = ("/api/delete/{id}"))

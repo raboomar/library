@@ -39,7 +39,7 @@ public class Book {
         this.title = title;
         this.author = author;
         this.readIt = readIt;
-//        this.user = user;
+
     }
 
     public void addUser(User user) {
